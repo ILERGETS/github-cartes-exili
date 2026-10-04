@@ -99,7 +99,7 @@ mark{background:var(--mark);color:inherit;padding:0 1px;border-radius:2px}
 .person{color:var(--gold);border-bottom:1px dotted var(--gold);cursor:pointer}
 #lb{position:fixed;inset:0;background:rgba(15,12,8,.94);z-index:100;display:none;touch-action:none;overflow:hidden}
 #lb.on{display:block}
-#lbimg{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform;user-select:none;-webkit-user-drag:none;touch-action:none}
+#lbimg{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform;user-select:none;-webkit-user-drag:none}
 #lbclose{position:fixed;top:12px;right:16px;color:#fff;font-size:2rem;cursor:pointer;z-index:101}
 #lbhint{position:fixed;bottom:14px;left:0;right:0;text-align:center;color:rgba(255,255,255,.7);font-size:.8rem;z-index:101}
 .scrim{position:fixed;inset:53px 0 0 0;background:rgba(0,0,0,.35);z-index:35;display:none}
@@ -349,7 +349,7 @@ let st;function onSearch(){clearTimeout(st);st=setTimeout(()=>{
 
 // ---------- lightbox: zoom + pan + pinch ----------
 let lbState={scale:1,tx:0,ty:0,nw:0,nh:0,fit:1};
-function openLb(src){const lb=$("#lb"),im=$("#lbimg");lb.classList.add("on");$("#lbhint").textContent="";const _vm=document.querySelector('meta[name="viewport"]');if(_vm){_vm._lbBak=_vm.content;_vm.content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no';}
+function openLb(src){const lb=$("#lb"),im=$("#lbimg");lb.classList.add("on");$("#lbhint").textContent="";
   const ready=()=>{lbState.nw=im.naturalWidth;lbState.nh=im.naturalHeight;requestAnimationFrame(fitLb);};
   im.onload=ready;im.src=src;if(im.complete&&im.naturalWidth)ready();}
 function fitLb(){const vw=innerWidth,vh=innerHeight;const f=Math.min(vw/lbState.nw,vh/lbState.nh)*0.96;
@@ -358,23 +358,23 @@ function applyLb(center){const im=$("#lbimg");const s=lbState.scale;
   im.style.width=lbState.nw+"px";im.style.height=lbState.nh+"px";
   const ox=center?lbState.nw/2:lbState._ox||lbState.nw/2, oy=center?lbState.nh/2:lbState._oy||lbState.nh/2;
   im.style.transform=`translate(${lbState.tx}px,${lbState.ty}px) scale(${s}) translate(${-lbState.nw/2}px,${-lbState.nh/2}px)`;}
-function closeLb(){$("#lb").classList.remove("on");const _vm=document.querySelector('meta[name="viewport"]');if(_vm&&_vm._lbBak){_vm.content=_vm._lbBak;delete _vm._lbBak;}}
+function closeLb(){$("#lb").classList.remove("on");}
 function bindLbEvents(){
   const lb=$("#lb"),im=$("#lbimg");
   $("#lbclose").onclick=e=>{e.stopPropagation();closeLb();};
   lb.addEventListener("wheel",e=>{e.preventDefault();zoomAt(e.clientX,e.clientY,e.deltaY<0?1.15:1/1.15);},{passive:false});
   // double click toggle
-  lb.addEventListener("dblclick",e=>{if(e.target.id==="lbclose")return;e.preventDefault();const to=lbState.scale<=lbState.fit*1.2?lbState.fit*2.5:lbState.fit;zoomTo(e.clientX,e.clientY,to);});
-  // pointer drag + pinch — listeners on lb (overlay) so both fingers captured anywhere on screen
+  im.addEventListener("dblclick",e=>{e.preventDefault();const to=lbState.scale<=lbState.fit*1.2?lbState.fit*2.5:lbState.fit;zoomTo(e.clientX,e.clientY,to);});
+  // pointer drag + pinch
   let pts=new Map(),last=null,pinch=null;
-  lb.addEventListener("pointerdown",e=>{if(e.target.id==="lbclose")return;lb.setPointerCapture(e.pointerId);pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  im.addEventListener("pointerdown",e=>{im.setPointerCapture(e.pointerId);pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
     if(pts.size===1)last={x:e.clientX,y:e.clientY};
     if(pts.size===2){const a=[...pts.values()];pinch={d:dist(a[0],a[1]),cx:(a[0].x+a[1].x)/2,cy:(a[0].y+a[1].y)/2};}});
-  lb.addEventListener("pointermove",e=>{if(!pts.has(e.pointerId))return;pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  im.addEventListener("pointermove",e=>{if(!pts.has(e.pointerId))return;pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
     if(pts.size===1&&last){lbState.tx+=e.clientX-last.x;lbState.ty+=e.clientY-last.y;last={x:e.clientX,y:e.clientY};applyLb();}
     else if(pts.size===2&&pinch){const a=[...pts.values()];const nd=dist(a[0],a[1]);zoomAt(pinch.cx,pinch.cy,nd/pinch.d);pinch.d=nd;}});
   const up=e=>{pts.delete(e.pointerId);if(pts.size<2)pinch=null;if(pts.size===0)last=null;};
-  lb.addEventListener("pointerup",up);lb.addEventListener("pointercancel",up);
+  im.addEventListener("pointerup",up);im.addEventListener("pointercancel",up);
   lb.addEventListener("click",e=>{if(e.target.id==="lb")closeLb();});
 }
 function dist(a,b){return Math.hypot(a.x-b.x,a.y-b.y);}
