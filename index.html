@@ -138,10 +138,17 @@ img.tree-clickable{cursor:pointer;border:2px solid transparent;border-radius:4px
 img.tree-clickable:hover{border-color:#8B7355}
 #pdf-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;align-items:center;justify-content:center;padding:12px}
 #pdf-modal.open{display:flex}
-#pdf-modal-inner{position:relative;width:100%;max-width:1200px;height:90vh;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.6)}
-#pdf-close{position:absolute;top:8px;right:10px;z-index:10;background:#8B7355;color:#fff;border:none;border-radius:50%;width:36px;height:36px;font-size:22px;line-height:1;cursor:pointer;font-weight:bold}
+#pdf-modal-inner{position:relative;width:100%;max-width:1400px;height:92vh;background:#444;border-radius:8px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.6);display:flex;flex-direction:column}
+#pdf-toolbar{display:flex;align-items:center;gap:8px;padding:6px 52px 6px 12px;background:#333;flex-shrink:0;user-select:none}
+#pdf-toolbar button{background:#8B7355;color:#fff;border:none;border-radius:4px;width:32px;height:32px;font-size:18px;cursor:pointer;line-height:1}
+#pdf-toolbar button:hover{background:#6b5735}
+#pdf-zoom-level{color:#fff;font-size:13px;min-width:52px;text-align:center}
+#pdf-close{position:absolute;top:6px;right:10px;z-index:10;background:#8B7355;color:#fff;border:none;border-radius:50%;width:36px;height:36px;font-size:22px;line-height:1;cursor:pointer;font-weight:bold}
 #pdf-close:hover{background:#6b5735}
-#pdf-frame{width:100%;height:100%;border:none;display:block}
+#pdf-container{flex:1;overflow:auto;cursor:grab;position:relative;background:#555;padding:12px;box-sizing:border-box}
+#pdf-container:active{cursor:grabbing}
+#pdf-canvas{display:block;box-shadow:0 2px 8px rgba(0,0,0,.5)}
+#pdf-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.7);color:#fff;padding:12px 24px;border-radius:8px;font-size:14px;pointer-events:none;white-space:nowrap}
 #pdf-hint{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.55);color:#fff;font-size:12px;padding:4px 12px;border-radius:12px;pointer-events:none;white-space:nowrap}
 </style></head><body><div id='app'><main class='fallback'><div class='nojs-note'>⚠️ Estàs veient la versió senzilla, sense interactivitat. Per veure el llibre complet —amb les fotos de les cartes, el cercador, el zoom i les quatre llengües (català, castellà, francès i polonès)— obre aquest arxiu amb un <b>navegador</b> (Safari, Chrome…). Des de la vista prèvia del correu no es pot navegar: desa'l primer i obre'l amb el navegador.</div><div style='text-align:center;margin:18px 0'><h1>Cartes de l'exili</h1><div style='font-size:1.2rem'>La família Granada, una família republicana que va patir la repressió franquista</div><div class='intro'>Correspondència dels avis exiliats a França amb la família que va restar a Espanya</div><div style='color:var(--gold);font-weight:700;margin-top:.4em'>Fleurance (Gers), 1938–1945</div><div class='intro'>Recull de 44 cartes i postals · Transcripció i edició familiar</div></div><h2>Sobre aquest recull</h2><p>Aquest llibre reuneix les cartes i postals que els avis <b>Valentín Granada</b> i <b>Presentación Gracia</b>, exiliats a Fleurance (departament del Gers, al sud de França) durant i després de la Guerra Civil, van escriure a la seva família que es va quedar a Espanya, principalment a la filla Consuelo i al fill Gabriel. Hi col·laboren també la jove Adoración López i el fill Inocencio amb la seva dona, Ana (Anita).</p><p>Les cartes originals les conserva la família. La Fina (Josefina Pascual), esposa del Javier, va fer arribar en un llapis de memòria la digitalització de tots aquests documents. A partir d'aquells escanejos s'ha fet aquest muntatge: separar cada carta, posar les pàgines dretes, transcriure-les i ordenar-les cronològicament.</p><p>La transcripció, la correcció i els comentaris s'han preparat amb l'ajuda d'una intel·ligència artificial, a partir dels documents originals, i després s'han revisat. En uns papers de més de vuitanta anys, escrits a mà i de vegades deteriorats, hi pot haver errors de lectura; es marquen amb claudàtors […] els fragments il·legibles o dubtosos.</p><p class='callout'>Us demanem que no sigueu massa severs amb les errades que hi trobeu. Si en detecteu alguna —una lectura equivocada, un nom, una data—, feu-ho saber a <b>Josep Lluís Puyalto Granada</b> (<a href='mailto:puyalto@coac.net'>puyalto@coac.net</a>) i la corregirem. Aquest recull és una feina viva.</p><div class='dedic'><p>A la memòria de<br>Valentín Granada i Presentación Gracia,<br>que van marxar de casa sense res i mai no van poder tornar-hi.</p><p class='dim'>I a totes les generacions de la família Granada, les d'aquí i les de fora, perquè no s'oblidi la seva veu.</p></div><h2>Pròleg</h2><p>Les cartes que teniu a les mans són el testimoni directe d'una família partida en dos per la història. L'any 1938, enmig de la Guerra Civil, els avis Valentín i Presentación, amb tres dels seus fills, van haver de travessar la frontera i refugiar-se a França. Es van instal·lar a Fleurance, un poble del Gers. A l'altra banda dels Pirineus van quedar-hi dos fills: la Consuelo i en Gabriel.</p><p>Durant set anys, el fil que va unir les dues meitats de la família va ser el correu. Cada carta trigava setmanes, passava per la censura militar i, massa sovint, es perdia pel camí. Per això es repeteixen les súpliques —«escribid pronto», «hace mucho tiempo que no sabemos nada»— i per això cada notícia, cada fotografia, cada petit paquet, es vivia com una festa.</p><p>En aquestes pàgines hi trobareu la vida quotidiana de l'exili: la gana i el racionament, l'hort que els salvava, el fred, la barrera de l'idioma, la malaltia de l'avi, que a poc a poc va perdent les cames, i la fortalesa de l'àvia, que els tirava a tots endavant amb una sola mà bona. Però sobretot hi trobareu amor: un amor tossut, que travessa fronteres i anys, i que no es rendeix mai.</p><p>El recull comença l'agost de 1938 i acaba l'agost de 1945, amb les dues cartes més doloroses: la que anuncia la mort de l'àvia i la que anuncia la de l'avi. Cap dels dos va tornar mai a Espanya.</p><p class='callout'>Hem conservat l'ortografia original perquè forma part de la seva veu i del seu temps; al costat hi trobareu una versió corregida per facilitar-ne la lectura.</p><p class='sign'>Que aquestes veus, tants anys després, segueixin parlant-nos.</p><h2>Agraïments</h2><p>Aquest llibre no existiria sense unes quantes persones a qui volem donar les gràcies de tot cor.</p><p>Al <b>Javier Casasús</b>, per haver guardat i per tot el que ens ha transmès, els noms, els parentius, les històries que donen sentit a cada carta, i a la <b>Fina</b>, la Josefina Pascual, la seva esposa, que va tenir el gest generós de fer-nos arribar la digitalització de totes aquestes cartes. Sense aquell gest, aquests papers s'haurien quedat en un calaix i la seva veu s'hauria anat apagant.</p><p>Al <b>Gabriel Granada Boned</b>, memòria viva de la família, per la gran ajuda que ens has donat; les teves correccions han estat de gran ajuda per a la realització d'aquestes línies.</p><p>A en <b>Dominik Granada</b>, que d'una manera molt generosa ens ha donat accés al seu arbre familiar de MyHeritage; quina feinada has fet, Dominik.</p><p>Un record també per a l'<b>Adoración</b> i per a l'<b>Anita</b>, que van tenir cura dels avis fins al final.</p><p>Un record final, i un reconeixement, per a la <b>Consuelo Granada</b>, que en el context d'una postguerra espanyola duríssima, amb dolor i amor, va guardar aquestes cartes dels seus pares exiliats.</p><h2>Com està fet aquest llibre</h2><p>Per fer més fàcil i més rica la lectura, cada carta i el conjunt del llibre s'han preparat amb aquests criteris:</p><ol class='feat'><li><b>Pàgines encarades.</b> A l'esquerra, la fotografia de la carta; a la dreta, el text i els comentaris.</li><li><b>Triple vista.</b> De cada carta: transcripció fidel (ortografia original), corregida (ortografia actual) i un resum amb el context. Es canvia amb un botó.</li><li><b>Notes aclaridores.</b> Petites notes expliquen noms, llocs i paraules que avui costen d'entendre.</li><li><b>Ordre cronològic.</b> Les cartes es numeren de la més antiga (1938) a la més recent (1945); entre parèntesis, el número original de l'arxiu.</li><li><b>Context històric.</b> Un apartat explica l'exili de la família i el món en què es van escriure.</li><li><b>Cercador.</b> Pots buscar qualsevol paraula dins totes les cartes.</li><li><b>Mapa i arbre.</b> Un mapa del recorregut i l'arbre genealògic complet, tots dos ampliables.</li></ol><h2>L'exili de la família Granada</h2><p class='intro'>Per entendre bé aquestes cartes cal tenir present el món en què es van escriure. Les dades familiars provenen de les cartes i del repositori genealògic de la família; el context general segueix la història àmpliament acceptada d'aquells anys.</p><h3>La família</h3><p>La família Granada era de l'Alt Aragó (província d'Osca), de la zona de Biescas i Barbastre. A principis de 1938, la Guerra Civil s'acostava al seu final a l'Aragó i, davant l'avanç de les tropes franquistes, milers de persones d'aquelles comarques van haver de fugir cap a França.</p><p>Els avis, ja grans, van travessar la frontera amb tres dels seus cinc fills —Antonio, Inocencio i Valentín— i es van instal·lar a Fleurance (Gers, Occitània). Els altres dos fills, la Consuelo i en Gabriel, es van quedar a Espanya, a Osca i a Barbastre. Aquesta separació és l'origen de totes les cartes. Com tants refugiats, van passar primer pels camps d'internament francesos; després van llogar una casa de camp als afores de Fleurance —«La Prada»— i van sobreviure gràcies al treball dels fills al camp i a un hort.</p><p>La separació va ser el gran dolor de les seves vides. Una néta nascuda a Espanya el 1939 va morir essent molt petita sense que els avis la veiessin mai; les cartes de condol d'aquells mesos són de les més tristes del recull. L'avi ho resumeix: «es dudoso que lleguemos a conocerla».</p><p>A les penúries materials no els en va faltar cap. L'àvia arrossegava des de 1938 les seqüeles d'un accident gravíssim que li va deixar una mà inutilitzada, i tot i això cosia sense parar. L'avi va anar perdent les cames fins a no poder-se aguantar dret: treballava l'hort assegut, arrossegant-se amb un calaix. Comptaven cada franc. I, malgrat tot, la dignitat intacta: «hay muchos más desgraciados que nosotros».</p><p>El que els mantenia drets era l'amor i l'ajuda mútua. Els fills exiliats els donaven tot el que guanyaven; la jove Adoración i, després, l'Anita, els van cuidar fins a l'últim dia. Aquesta és, en el fons, la història d'una família pobra en tot menys en estimació.</p><h3>Espanya: la guerra i la Retirada (1936–1939)</h3><p>La Guerra Civil espanyola (juliol de 1936 – abril de 1939) va enfrontar el govern legítim de la Segona República amb els militars revoltats encapçalats pel general Franco. L'Aragó va ser un front molt actiu; a principis de 1939 va caure Catalunya.</p><p>La caiguda de Catalunya va provocar «la Retirada»: prop de mig milió de persones van travessar els Pirineus en ple hivern. El govern francès els va tancar en camps d'internament improvisats (Argelès-sur-Mer, Gurs, Agde, Le Vernet…), amb fred, fam i molta mortalitat. La família Granada va viure aquesta mateixa experiència abans d'instal·lar-se a Fleurance.</p><h3>França: la Segona Guerra Mundial i l'ocupació (1939–1945)</h3><p>L'1 de setembre de 1939, Alemanya va envair Polònia i va començar la Segona Guerra Mundial. El 1940 l'exèrcit alemany va derrotar França; el país va quedar partit entre la zona ocupada i la zona de Vichy, que va col·laborar amb els nazis. El Gers era a la zona sud, ocupada també el novembre de 1942.</p><p>Per als refugiats espanyols, tot estava racionat i escàs. Les cartes parlen de patates a dos francs el quilo i de «tasas» de pocs quilos al mes per a tota la família. França no es va alliberar fins a l'estiu i la tardor de 1944.</p><h3>El nazisme i els espanyols als camps</h3><p>L'Alemanya nazi d'Adolf Hitler va imposar a Europa un règim de terror i extermini que va costar desenes de milions de vides, entre elles els sis milions de jueus de l'Holocaust. Milers de republicans espanyols exiliats a França van ser deportats a camps nazis —sobretot Mauthausen—, on molts van morir.</p><h3>La postguerra espanyola: els anys de la gana</h3><p>A Espanya, la victòria de Franco va donar pas a una llarga dictadura (1939–1975), amb repressió dels vençuts i misèria generalitzada. El racionament amb cartilles va durar fins ben entrada la dècada de 1950. El règim exigia als exiliats avals de «bona conducta» per deixar-los tornar; per a molts, l'exili va acabar sent per sempre.</p><h3>Una paraula sobre la censura</h3><p>Totes les cartes que creuaven la frontera eren obertes i llegides. S'hi veuen els segells de la «Censura Militar» de Saragossa. Això explica per què l'avi parla amb mitges paraules —anomena la guerra «los ruidos»— i per què tantes cartes es confiaven en mà a persones de confiança (la Pilar, en Tomás) que viatjaven entre els dos països.</p><h3>Polònia: del drama a la democràcia</h3><p>Un dels fills dels avis, l'Antonio, va acabar establint-se a Polònia, i és allà on va arrelar una branca de la família que encara existeix avui (en Dominik i els seus). Val la pena resseguir el que ha viscut aquell país, perquè és també part de la història de la família.</p><h4>L'ocupació nazi (1939–1945)</h4><p>Polònia va ser el primer país envaït: l'1 de setembre de 1939 pels alemanys i, setmanes després, per la Unió Soviètica. Va ser el territori més castigat de la guerra: els nazis hi van construir els camps d'extermini més grans —Auschwitz-Birkenau n'és el símbol—. Polònia va perdre prop d'una sisena part de la seva població.</p><h4>El règim comunista (1945–1989)</h4><p>Acabada la guerra, Polònia va quedar sota l'òrbita de la Unió Soviètica, dins el bloc de l'Est i separada de l'Europa occidental pel «teló d'acer». Als anys vuitanta, el sindicat Solidarność (Solidaritat), nascut a les drassanes de Gdańsk, va ser el gran moviment de resistència pacífica contra el règim.</p><h4>La caiguda del mur i la democràcia</h4><p>A la segona meitat dels anys vuitanta, el dirigent soviètic Mikhaïl Gorbatxov va impulsar la «perestroika» i la «glàsnost». El 1989, Polònia va celebrar eleccions parcialment lliures i va caure el mur de Berlín. Des d'aleshores, Polònia és una democràcia: el 1999 va entrar a l'OTAN i el 2004 a la Unió Europea. La branca polonesa de la família viu, doncs, en una Europa unida i en pau, la mateixa que els avis no van poder ni imaginar.</p><h4>I avui: la pau no està mai garantida</h4><p>Tanmateix, la pau a Europa no és un bé assegurat per sempre. L'any 2022, Rússia va envair Ucraïna en una guerra que encara continua i ha causat milions de refugiats —imatges d'èxode que recorden les de la Retirada de 1939—. Les tensions entre Rússia i l'OTAN s'han enfilat, amb punts calents com Kaliningrad. La por d'una nova gran guerra a Europa ha tornat.</p><h4>Un desig</h4><p>Precisament per això té sentit llegir aquestes cartes. Ens recorden què signifiquen de debò les guerres: famílies partides, fills que no tornen, néts que no es coneixen, morts a l'exili sense poder acomiadar-se. Les paguen sempre les persones corrents, com la família Granada.</p><p class='callout'>Ens manifestem, doncs, per l'esperança: que les nacions aprenguin a entendre's en pau, i que cap més família hagi de viure el que van viure els nostres avis.</p><h2>Qui és qui</h2><p class='intro'>Perquè no us perdeu entre els noms, aquí teniu les persones que apareixen més sovint a les cartes.</p><h3>Els avis (els qui escriuen des de França)</h3><dl class='qq'><dt data-person='Valentín Granada (1869–1945)'>Valentín Granada (1869–1945)</dt><dd>El pare. Escriu la major part de les cartes. A l'exili va anar perdent la mobilitat de les cames i va morir a Fleurance el 3 d'agost de 1945, sense tornar a Espanya.</dd><dt data-person='Presentación Gracia (1869–1944)'>Presentación Gracia (1869–1944)</dt><dd>La mare. Va patir un greu accident a Biescas el 1938 que li va deixar una mà inutilitzada. Va morir a França el 20 d'octubre de 1944.</dd></dl><h3>Els fills que es van quedar a Espanya (els destinataris)</h3><dl class='qq'><dt data-person='Consuelo Granada Gracia'>Consuelo Granada Gracia</dt><dd>La filla. Principal destinatària de les cartes. Vivia a Osca (Jaca, Saragossa, Sabiñánigo). Casada amb Vicente Casasús; fills: Vicente Javier i Alberto.</dd><dt data-person='Gabriel Granada Gracia (1904–2005)'>Gabriel Granada Gracia (1904–2005)</dt><dd>El fill. Es va quedar a Barbastre. L'avi li va donar poders per administrar els béns a Espanya. Casat amb Vicenta Alarcón Rubio i, després, amb Irene Boned Alvira (fill: Gabriel Granada Boned).</dd></dl><h3>Els fills exiliats a França</h3><dl class='qq'><dt data-person='Antonio Granada Gracia (1905–1994)'>Antonio Granada Gracia (1905–1994)</dt><dd>Exiliat; amb el temps es va distanciar i va acabar establint-se a Polònia. Casat amb Adoración López.</dd><dt data-person='Inocencio Granada Gracia'>Inocencio Granada Gracia</dt><dd>Exiliat. Amb la seva dona, Ana (Anita), va tenir cura dels avis. Signa la carta que anuncia la mort del pare.</dd><dt data-person='Valentín Granada Gracia (fill)'>Valentín Granada Gracia (fill)</dt><dd>Exiliat. Es va casar a França amb una noia de Màlaga (María); amb ell van viure els avis els últims anys.</dd></dl><h3>A prop dels avis, a França</h3><dl class='qq'><dt data-person='Adoración López (1908–2000)'>Adoración López (1908–2000)</dt><dd>Dona de l'Antonio; a les cartes es fa dir «hermana». Escriu moltes de les notes afectuoses. Mare de Senen i Antoñito.</dd><dt data-person='Ana «Anita» Alarcón Rubio'>Ana «Anita» Alarcón Rubio</dt><dd>Dona de l'Inocencio. Va cuidar l'avi fins al final. Germana de la Vicenta.</dd><dt data-person='Senen i Antoñito'>Senen i Antoñito</dt><dd>Néts dels avis, fills de l'Antonio i l'Adoración. En Senen fins i tot escriu de la seva mà en algunes cartes.</dd></dl><h3>Enllaços entre França i Espanya</h3><dl class='qq'><dt data-person='Pilar, les noies de Pantorras, Tomás…'>Pilar, les noies de Pantorras, Tomás…</dt><dd>Persones de confiança que viatjaven entre els dos països portant en mà cartes i paquets, esquivant el correu i la censura.</dd></dl><h2>Arbre de la família (resum)</h2><p class='intro'>Esquema simplificat, centrat en els avis i els seus cinc fills. L'arbre complet és a l'annex.</p><div class='tree'><div class='tr l0'>Valentín Granada × Presentación Gracia (1869–1944)</div><div class='tr l1'>Gabriel Granada Gracia (1904–2005) × Vicenta Alarcón Rubio / Irene Boned Alvira — a Barbastre</div><div class='tr l2'>↳ María Rosa · Presentación · Ana María · Gabriel (Granada Boned)</div><div class='tr l1'>Antonio Granada Gracia (1905–1994) × Adoración López (1908–2000) — exili → Polònia</div><div class='tr l2'>↳ Senen · Antonio jr</div><div class='tr l1'>Inocencio Granada Gracia × Ana «Anita» Alarcón Rubio — exili a França</div><div class='tr l2'>↳ Anita</div><div class='tr l1'>Valentín Granada Gracia (fill) × María — exili a França</div><div class='tr l2'>↳ Ani · Michael</div><div class='tr l1'>Consuelo Granada Gracia × Vicente Casasús — a Osca</div><div class='tr l2'>↳ Vicente Javier · Alberto (Casasús Granada)</div></div><h3>Naixement i defunció</h3><p class='intro'>Dels membres de l'arbre que ja no hi són, segons el repositori genealògic familiar (*&nbsp;naixement · †&nbsp;defunció). Els llocs que no hi consten s'ometen.</p><div class='deaths'><div class='dr'><span class='dn'>Valentín Granada (avi)</span> <span class='dd'>✻ 1869  ·  † 3 d'agost de 1945, Fleurance (França)</span></div><div class='dr'><span class='dn'>Presentación Gracia (àvia)</span> <span class='dd'>✻ 1869  ·  † 20 d'octubre de 1944, França</span></div><div class='dr'><span class='dn'>Gabriel Granada Gracia</span> <span class='dd'>✻ 1904  ·  † 2005, Barbastre</span></div><div class='dr'><span class='dn'>Vicenta Alarcón Rubio</span> <span class='dd'>✻ 1912, Mazarrón (Múrcia)  ·  † 1945, Barcelona</span></div><div class='dr'><span class='dn'>Irene Boned Alvira</span> <span class='dd'>✻ 1912  ·  † 1999</span></div><div class='dr'><span class='dn'>Antonio Granada Gracia</span> <span class='dd'>✻ 1905  ·  † 1994, Polònia</span></div><div class='dr'><span class='dn'>Adoración López</span> <span class='dd'>✻ 1908  ·  † 2000</span></div><div class='dr'><span class='dn'>Inocencio Granada Gracia</span> <span class='dd'>† França</span></div><div class='dr'><span class='dn'>Ana «Anita» Alarcón Rubio</span> <span class='dd'>† Niça (França)</span></div><div class='dr'><span class='dn'>Valentín Granada Gracia (fill)</span> <span class='dd'>† França</span></div><div class='dr'><span class='dn'>Consuelo Granada Gracia</span> <span class='dd'>† Osca</span></div><div class='dr'><span class='dn'>Senen Granada</span> <span class='dd'>✻ 1939, Polònia  ·  † 1988</span></div></div><p class='intro' style='font-size:.85rem'>Nota: la carta que anuncia la mort de l'avi (carta 44) escriu «el dia 3 d'agost» al text, però el comiat podria indicar el 4; es manté el 3.</p><h2>Línia de temps</h2><div class='tl'><div class='tli'><span class='y'>1936–1938</span><span class='d'>Guerra Civil espanyola a l'Aragó.</span></div><div class='tli clk' data-cn='1'><span class='y'>Ag. 1938</span><span class='d'>Primeres cartes des de França. L'avi Valentín escriu des de Fleurance just d'arribar a l'exili. <span class='tl-cn'>→ carta 1</span></span></div><div class='tli clk' data-cn='2'><span class='y'>Set. 1938</span><span class='d'>Accident de l'àvia Presentación a Biescas. Una porta de ferro li cau al damunt; hospitalitzada a Barbastro molts dies. <span class='tl-cn'>→ carta 2</span></span></div><div class='tli clk' data-cn='6'><span class='y'>Gen. 1939</span><span class='d'>Mesos sense notícies de la família. Angoixa per la incomunicació i por per la guerra. <span class='tl-cn'>→ carta 6</span></span></div><div class='tli clk' data-cn='10'><span class='y'>Abr. 1939</span><span class='d'>Cau la República. Primera carta de l'exili després de la derrota; el retorn sembla impossible. <span class='tl-cn'>→ carta 10</span></span></div><div class='tli clk' data-cn='11'><span class='y'>Jun. 1939</span><span class='d'>L'avi Valentín emmalalteix greument. Retornar a Espanya és impossible. <span class='tl-cn'>→ carta 11</span></span></div><div class='tli clk' data-cn='15'><span class='y'>Ag. 1939</span><span class='d'>Les germanes es retroben prop de Fleurance. Reunificació familiar parcial a l'exili. <span class='tl-cn'>→ carta 15</span></span></div><div class='tli clk' data-cn='18'><span class='y'>Nov. 1939</span><span class='d'>L'avi no pot caminar; té els dos genolls trencats. Cures a casa sense poder treballar. <span class='tl-cn'>→ carta 18</span></span></div><div class='tli clk' data-cn='20'><span class='y'>Final 1939</span><span class='d'>Mor una néta. El dol des de l'exili, sense poder acomiadar-se de la família. <span class='tl-cn'>→ carta 20</span></span></div><div class='tli clk' data-cn='26'><span class='y'>Mar. 1940</span><span class='d'>L'Anita arriba finalment a Fleurance. La família es va reconstituint a l'exili. <span class='tl-cn'>→ carta 26</span></span></div><div class='tli clk' data-cn='31'><span class='y'>Des. 1940</span><span class='d'>Racionament a França. Patates a 2 Fr/kg, 9 kg al mes per a 4 persones. <span class='tl-cn'>→ carta 31</span></span></div><div class='tli clk' data-cn='35'><span class='y'>Oct. 1941</span><span class='d'>Gestió del patrimoni des de l'exili. Dificultats per administrar béns a Espanya en plena postguerra. <span class='tl-cn'>→ carta 35</span></span></div><div class='tli clk' data-cn='36'><span class='y'>Oct. 1942</span><span class='d'>«Avales de buena conducta» al consolat. Tràmits per intentar tornar a Espanya. <span class='tl-cn'>→ carta 36</span></span></div><div class='tli clk' data-cn='38'><span class='y'>Nov. 1943</span><span class='d'>Arriba el retrat del nét Alberto. Petit gest que connecta les dues famílies separades per la frontera. <span class='tl-cn'>→ carta 38</span></span></div><div class='tli clk' data-cn='39'><span class='y'>Gen. 1944</span><span class='d'>L'àvia emmalalteix. Els fills, escampats per França i Espanya, no poden reunir-se. <span class='tl-cn'>→ carta 39</span></span></div><div class='tli clk' data-cn='40'><span class='y'>Feb. 1945</span><span class='d'>Mor l'àvia Presentación. La notícia arriba per postal, segellada per la censura. <span class='tl-cn'>→ carta 40</span></span></div><div class='tli clk' data-cn='44'><span class='y'>Ag. 1945</span><span class='d'>Mor l'avi Valentín a Fleurance. Final de set anys d'exili i d'un epistolari únic. <span class='tl-cn'>→ carta 44</span></span></div></div><h2>La repressió franquista contra una família republicana</h2>
 <p class='rep-intro'>«La dictadura va fer tot el possible per esborrar les vides d'aquestes persones. Les va forçar a l'exili, va interceptar les seves cartes, va impedir-los tornar i va deixar que morissin lluny de casa. Malgrat tot, van resistir: amb paraules, amb afecte, amb l'obstinació d'escriure's. Nosaltres recuperem ara allò que van intentar destruir i ho fem visible, perquè documentar la repressió franquista és la millor forma de justícia que encara podem oferir-los.»</p>
@@ -482,24 +489,134 @@ buildNav();render();setPrintMenu();bindShell();bindLbEvents();
 routeFromHash();
 })();
 </script>
-<!-- ═══ Visor PDF arbre genealògic ═══════════════════════════════════════ -->
+<!-- ═══ Visor PDF arbre genealògic (PDF.js) ═══════════════════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <div id="pdf-modal" role="dialog" aria-modal="true" aria-label="Visualitzador de l'arbre genealògic" onclick="if(event.target===this)closePDFViewer()">
   <div id="pdf-modal-inner">
-    <button id="pdf-close" onclick="closePDFViewer()" title="Tancar">×</button>
-    <iframe id="pdf-frame" src="about:blank" title="Arbre genealògic complet"></iframe>
-    <div id="pdf-hint">Utilitza els controls del visor per fer zoom i desplaçar-te · Toca fora per tancar</div>
+    <div id="pdf-toolbar">
+      <button onclick="pdfZoom(-1)" title="Reduir">&#8722;</button>
+      <span id="pdf-zoom-level">100%</span>
+      <button onclick="pdfZoom(1)" title="Ampliar">+</button>
+      <button onclick="pdfFit()" title="Ajustar a pantalla">&#8633;</button>
+    </div>
+    <button id="pdf-close" onclick="closePDFViewer()" title="Tancar">&#215;</button>
+    <div id="pdf-container">
+      <canvas id="pdf-canvas"></canvas>
+      <div id="pdf-loading">Carregant PDF&#8230;</div>
+    </div>
+    <div id="pdf-hint">Roda el ratol&#237; per fer zoom &middot; Arrossega per moure&apos;t &middot; Toca fora per tancar</div>
   </div>
 </div>
 <script>
 (function(){
-  var pdfLoaded=false;
-  function openPDFViewer(){
-    if(!pdfLoaded){
-      document.getElementById('pdf-frame').src='./arbre-genealogic.pdf';
-      pdfLoaded=true;
+  pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  var PDF_URL='./arbre-genealogic.pdf';
+  var pdfDoc=null,currentScale=1.0,renderTask=null;
+  var SCALE_STEPS=[0.25,0.33,0.5,0.67,0.75,1.0,1.25,1.5,2.0,2.5,3.0,4.0,5.0];
+  var canvas=document.getElementById('pdf-canvas');
+  var ctx=canvas.getContext('2d');
+  var cont=document.getElementById('pdf-container');
+  var loadEl=document.getElementById('pdf-loading');
+  var isPanning=false,panX0,panY0,scrX0,scrY0,lastPinch=null;
+
+  function showLoad(v){loadEl.style.display=v?'block':'none';}
+
+  async function loadPDF(){
+    showLoad(true);
+    try{
+      pdfDoc=await pdfjsLib.getDocument(PDF_URL).promise;
+      await fitToContainer();
+    }catch(e){loadEl.textContent='Error carregant el PDF';}
+  }
+
+  async function renderAtScale(scale){
+    if(!pdfDoc)return;
+    showLoad(true);
+    if(renderTask){try{renderTask.cancel();}catch(x){}}
+    var page=await pdfDoc.getPage(1);
+    var dpr=window.devicePixelRatio||1;
+    var vp=page.getViewport({scale:scale*dpr});
+    canvas.width=vp.width;
+    canvas.height=vp.height;
+    canvas.style.width=Math.round(vp.width/dpr)+'px';
+    canvas.style.height=Math.round(vp.height/dpr)+'px';
+    renderTask=page.render({canvasContext:ctx,viewport:vp});
+    try{await renderTask.promise;}catch(x){}
+    renderTask=null;
+    document.getElementById('pdf-zoom-level').textContent=Math.round(scale*100)+'%';
+    showLoad(false);
+  }
+
+  async function fitToContainer(){
+    if(!pdfDoc)return;
+    var page=await pdfDoc.getPage(1);
+    var vp=page.getViewport({scale:1});
+    var sw=cont.clientWidth-24,sh=cont.clientHeight-24;
+    currentScale=Math.min(sw/vp.width,sh/vp.height);
+    await renderAtScale(currentScale);
+    cont.scrollLeft=Math.max(0,(cont.scrollWidth-cont.clientWidth)/2);
+    cont.scrollTop=Math.max(0,(cont.scrollHeight-cont.clientHeight)/2);
+  }
+  window.pdfFit=fitToContainer;
+
+  async function doZoom(dir){
+    var best=-1,bestD=Infinity;
+    for(var i=0;i<SCALE_STEPS.length;i++){
+      var d=Math.abs(SCALE_STEPS[i]-currentScale);
+      if(d<bestD){bestD=d;best=i;}
     }
+    var ni=best+dir;
+    if(ni<0||ni>=SCALE_STEPS.length)return;
+    var cx=cont.scrollLeft+cont.clientWidth/2;
+    var cy=cont.scrollTop+cont.clientHeight/2;
+    var ratio=SCALE_STEPS[ni]/currentScale;
+    currentScale=SCALE_STEPS[ni];
+    await renderAtScale(currentScale);
+    cont.scrollLeft=cx*ratio-cont.clientWidth/2;
+    cont.scrollTop=cy*ratio-cont.clientHeight/2;
+  }
+  window.pdfZoom=doZoom;
+
+  cont.addEventListener('wheel',function(e){
+    e.preventDefault();
+    doZoom(e.deltaY<0?1:-1);
+  },{passive:false});
+
+  cont.addEventListener('mousedown',function(e){
+    if(e.button!==0)return;
+    isPanning=true;panX0=e.clientX;panY0=e.clientY;
+    scrX0=cont.scrollLeft;scrY0=cont.scrollTop;
+    e.preventDefault();
+  });
+  document.addEventListener('mousemove',function(e){
+    if(!isPanning)return;
+    cont.scrollLeft=scrX0-(e.clientX-panX0);
+    cont.scrollTop=scrY0-(e.clientY-panY0);
+  });
+  document.addEventListener('mouseup',function(){isPanning=false;});
+
+  cont.addEventListener('touchstart',function(e){
+    if(e.touches.length===2){
+      lastPinch=Math.hypot(
+        e.touches[0].clientX-e.touches[1].clientX,
+        e.touches[0].clientY-e.touches[1].clientY);
+    }
+  },{passive:true});
+  cont.addEventListener('touchmove',function(e){
+    if(e.touches.length===2&&lastPinch!==null){
+      e.preventDefault();
+      var d=Math.hypot(
+        e.touches[0].clientX-e.touches[1].clientX,
+        e.touches[0].clientY-e.touches[1].clientY);
+      if(Math.abs(d-lastPinch)>12){doZoom(d>lastPinch?1:-1);lastPinch=d;}
+    }
+  },{passive:false});
+  cont.addEventListener('touchend',function(){lastPinch=null;},{passive:true});
+
+  function openPDFViewer(){
     document.getElementById('pdf-modal').classList.add('open');
     document.body.style.overflow='hidden';
+    if(!pdfDoc)loadPDF();
   }
   function closePDFViewer(){
     document.getElementById('pdf-modal').classList.remove('open');
