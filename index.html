@@ -486,18 +486,19 @@ routeFromHash();
 <div id="pdf-modal" role="dialog" aria-modal="true" aria-label="Visualitzador de l'arbre genealògic" onclick="if(event.target===this)closePDFViewer()">
   <div id="pdf-modal-inner">
     <button id="pdf-close" onclick="closePDFViewer()" title="Tancar">×</button>
-    <iframe id="pdf-frame" src="" title="Arbre genealògic complet"></iframe>
+    <iframe id="pdf-frame" src="about:blank" title="Arbre genealògic complet"></iframe>
     <div id="pdf-hint">Utilitza els controls del visor per fer zoom i desplaçar-te · Toca fora per tancar</div>
   </div>
 </div>
 <script>
 (function(){
+  var pdfLoaded=false;
   function openPDFViewer(){
-    var m=document.getElementById('pdf-modal');
-    var f=document.getElementById('pdf-frame');
-    if(!f.src||f.src==='about:blank'||f.src===window.location.href)
-      f.src='./arbre-genealogic.pdf';
-    m.classList.add('open');
+    if(!pdfLoaded){
+      document.getElementById('pdf-frame').src='./arbre-genealogic.pdf';
+      pdfLoaded=true;
+    }
+    document.getElementById('pdf-modal').classList.add('open');
     document.body.style.overflow='hidden';
   }
   function closePDFViewer(){
