@@ -917,10 +917,11 @@ function injectMapChips(){const v=$("#v-mapa");if(!v)return;const fig=v.querySel
 }
 function initLeafletMap(){
   const el=document.getElementById('leafmap');
-  if(!el||typeof L==='undefined')return;
+  const LF=window.L;
+  if(!el||typeof LF==='undefined')return;
   if(_leafMap){_leafMap.remove();_leafMap=null;}
-  _leafMap=L.map('leafmap');
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+  _leafMap=LF.map('leafmap');
+  LF.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
     attribution:'\u00a9 <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     maxZoom:18
   }).addTo(_leafMap);
@@ -932,11 +933,11 @@ function initLeafletMap(){
     const isToday=loc.type==='today';
     const clr=isStar?'#8a6d3b':(isToday?'#3f6b74':'#222222');
     const sz=isStar?16:10;
-    const icon=L.divIcon({
+    const icon=LF.divIcon({
       html:'<div style="background:'+clr+';width:'+sz+'px;height:'+sz+'px;border-radius:50%;border:2.5px solid white;box-shadow:0 1px 4px rgba(0,0,0,.4)"></div>',
       className:'',iconSize:[sz,sz],iconAnchor:[sz/2,sz/2]
     });
-    const m=L.marker([loc.lat,loc.lon],{icon}).addTo(_leafMap);
+    const m=LF.marker([loc.lat,loc.lon],{icon}).addTo(_leafMap);
     m.bindPopup('<b>'+name+'</b>');
     bounds.push([loc.lat,loc.lon]);
   });
